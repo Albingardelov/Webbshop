@@ -1,0 +1,103 @@
+.site-header {
+	background-color: #1f1f1f;
+	color: white;
+	padding: 1rem;
+	position: relative;
+}
+
+.top-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.menu-btn,
+.cart-btn {
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	color: white;
+	cursor: pointer;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 1.1rem;
+	font-weight: bold;
+	filter: invert(1);
+}
+
+.logo img {
+	height: 24px;
+	width: auto;
+}
+
+.search-bar {
+	display: flex;
+	margin-top: 1rem;
+}
+
+.search-bar input {
+	flex: 1;
+	padding: 0.6rem;
+	font-size: 1rem;
+	border: none;
+}
+
+.search-bar button {
+	padding: 0.6rem;
+	background-color: white;
+	border: 1px solid #000;
+	cursor: pointer;
+}
+
+.menu-btn img,
+.cart-btn img {
+	width: 28px;
+	height: auto;
+	filter: invert(1); /* om SVG:en är svart och du vill ha vit ikon */
+}
+
+.search-bar button img {
+	width: 24px;
+	height: auto;
+}
+
+.dropdown-menu {
+	display: none;
+	background-color: #1f1f1f;
+	color: white;
+	width: 100vw;
+	left: 0;
+	right: 0;
+	top: 100%;
+	position: absolute;
+	z-index: 1000;
+	padding: 1rem;
+}
+
+.dropdown-menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.dropdown-menu a {
+	color: white;
+	text-decoration: none;
+	font-size: 1.1rem;
+}
+
+/* Visa bara när den har klassen .open */
+.dropdown-menu.open {
+	display: block;
+}
+
+.menu-wrapper {
+	position: relative;
+}
