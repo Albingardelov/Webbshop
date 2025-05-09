@@ -45,13 +45,9 @@ function Header({ onCartClick }) {
 					</NavLink>
 				</div>
 
-				<button
-					className="cart-btn"
-					aria-label="Kundvagn"
-					onClick={onCartClick}
-				>
+				<NavLink to="/cart" className="cart-btn" aria-label="Kundvagn">
 					<img src={cartIcon} alt="Kundvagnsikon" />
-				</button>
+				</NavLink>
 			</div>
 
 			<form className="search-bar">

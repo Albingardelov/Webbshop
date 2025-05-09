@@ -4,7 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import ProductCard from './ProductCard';
 import '../../styles/ProductGrid.css';
 
-function ProductGrid({ category }) {
+function ProductGrid({ category, sortBy = 'name' }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,11 +21,21 @@ function ProductGrid({ category }) {
     fetchProducts();
   }, [category]);
 
+  // Sort products based on sortBy prop
+  const sortedProducts = [...products].sort((a, b) => {
+    if (sortBy === 'price') {
+      return (Number(a.price) || 0) - (Number(b.price) || 0);
+    } else {
+      // Default: sort by name (A-Ö)
+      return (a.name || '').localeCompare(b.name || '', 'sv');
+    }
+  });
+
   if (loading) return <div>Laddar produkter...</div>;
 
   return (
     <div className="product-grid">
-      {products.map(product => (
+      {sortedProducts.map(product => (
         <ProductCard key={product.id} product={product} />
       ))}
     </div>

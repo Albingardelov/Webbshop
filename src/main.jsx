@@ -6,7 +6,7 @@ import App from './App.jsx';
 import { createHashRouter, RouterProvider } from 'react-router';
 
 import Home from './pages/Home.jsx';
-import Cart from './pages/Cart.jsx';
+import Cart from './components/Cart/Cart.jsx';
 import Admin from './pages/Admin.jsx';
 import Login from './pages/Login.jsx';
 import EditProduct from './pages/EditProduct.jsx';

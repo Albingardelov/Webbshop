@@ -1,7 +1,9 @@
 import '../../styles/ProductGrid.css';
 import cartIcon from '../../assets/cartIcon.svg';
+import { useCartStore } from '../../store/cartStore';
 
 function ProductCard({ product }) {
+  const addToCart = useCartStore((state) => state.addToCart);
   return (
     <div className="product-card">
       {product.image && (
@@ -10,7 +12,7 @@ function ProductCard({ product }) {
       <div className="product-name">{product.name}</div>
       <div className="product-price">{product.price} kr</div>
       <div className="product-description">{product.description}</div>
-      <button className="add-to-cart-btn">
+      <button className="add-to-cart-btn" onClick={() => addToCart(product)}>
         <img src={cartIcon} alt="Kundvagn" className="cart-icon" /> Lägg i kundvagn
       </button>
     </div>

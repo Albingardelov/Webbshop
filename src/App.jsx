@@ -7,8 +7,6 @@ function App() {
 		<div className="app">
 			<Header
 				logoSrc="/logo.svg"
-				onMenuClick={() => console.log('Meny öppnas')}
-				onCartClick={() => console.log('Kundvagn öppnas')}
 			/>
 
 			<main>
