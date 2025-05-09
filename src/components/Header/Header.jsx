@@ -40,7 +40,9 @@ function Header({ onCartClick }) {
 				</div>
 
 				<div className="logo">
-					<img src={logo} alt="Ljudzon logotyp" />
+					<NavLink to="/">
+						<img src={logo} alt="Ljudzon logotyp" />
+					</NavLink>
 				</div>
 
 				<button
@@ -71,7 +73,7 @@ function Header({ onCartClick }) {
 						<NavLink to="/category/gaming" onClick={() => setIsMenuOpen(false)}>Gaming</NavLink>
 					</li>
 					<li>
-						<NavLink to="/category/tillbehör" onClick={() => setIsMenuOpen(false)}>Tillbehör</NavLink>
+						<NavLink to="/category/accessories" onClick={() => setIsMenuOpen(false)}>Tillbehör</NavLink>
 					</li>
 				</ul>
 			</nav>

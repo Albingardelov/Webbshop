@@ -11,6 +11,7 @@ import Admin from './pages/Admin.jsx';
 import Login from './pages/Login.jsx';
 import EditProduct from './pages/EditProduct.jsx';
 import AddProduct from './pages/AddProduct.jsx';
+import ProductPage from './pages/ProductPage';
 
 const router = createHashRouter([
   {
@@ -40,6 +41,10 @@ const router = createHashRouter([
       {
         path: 'admin/add',
         Component: AddProduct
+      },
+      {
+        path: 'category/:category',
+        Component: ProductPage
       }
     ]
   }
