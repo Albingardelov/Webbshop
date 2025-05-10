@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { auth } from '../data/database';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import '../styles/Login.css';
-import PrivateRoute from '../components/PrivateRoute.jsx';
+import PrivateRoute from '../components/PrivateRoute/PrivateRoute.jsx';
 import Admin from './Admin.jsx';
 
 function Login() {

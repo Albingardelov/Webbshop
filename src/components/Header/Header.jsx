@@ -1,30 +1,35 @@
 import { useState, useRef, useEffect } from 'react';
 import '../../styles/Header.css';
 import menuIcon from '../../assets/menuIcon.svg';
-import cartIcon from '../../assets/cartIcon.svg';
 import searchIcon from '../../assets/searchIcon.svg';
 import logo from '../../assets/Logo.svg';
 import { NavLink } from 'react-router';
+import ProductSearchLogic from '../SearchLogic/ProductSearchLogic';
+import CartCounterBadge from '../CartCounterBadge/CartCounterBadge';
 
 function Header({ onCartClick }) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [searchQuery, setSearchQuery] = useState('');
+	const [searchActive, setSearchActive] = useState(false);
 	const headerRef = useRef();
+	const searchRef = useRef();
 
 	useEffect(() => {
 		function handleClickOutside(e) {
 			if (headerRef.current && !headerRef.current.contains(e.target)) {
 				setIsMenuOpen(false);
+				setSearchActive(false);
 			}
 		}
 
-		if (isMenuOpen) {
+		if (isMenuOpen || searchActive) {
 			document.addEventListener('click', handleClickOutside);
 		}
 
 		return () => {
 			document.removeEventListener('click', handleClickOutside);
 		};
-	}, [isMenuOpen]);
+	}, [isMenuOpen, searchActive]);
 
 	return (
 		<header className="site-header" ref={headerRef}>
@@ -46,16 +51,47 @@ function Header({ onCartClick }) {
 				</div>
 
 				<NavLink to="/cart" className="cart-btn" aria-label="Kundvagn">
-					<img src={cartIcon} alt="Kundvagnsikon" />
+					<CartCounterBadge />
 				</NavLink>
 			</div>
 
-			<form className="search-bar">
-				<input type="text" placeholder="Vad söker du?" aria-label="Sök" />
-				<button type="submit" aria-label="Sök">
-					<img src={searchIcon} alt="Sök" />
-				</button>
-			</form>
+			<div style={{ position: 'relative' }}>
+				<form className="search-bar" onSubmit={e => e.preventDefault()} ref={searchRef} autoComplete="off">
+					<input
+						type="text"
+						placeholder="Vad söker du?"
+						aria-label="Sök"
+						value={searchQuery}
+						onChange={e => {
+							setSearchQuery(e.target.value);
+							setSearchActive(!!e.target.value);
+						}}
+						onFocus={() => setSearchActive(!!searchQuery)}
+					/>
+					<button type="submit" aria-label="Sök">
+						<img src={searchIcon} alt="Sök" />
+					</button>
+				</form>
+				{searchActive && searchQuery && (
+					<div className="search-dropdown">
+						<ProductSearchLogic query={searchQuery}>
+							{({ results, loading }) => (
+								<div>
+									{loading && <div className="search-loading">Söker...</div>}
+									{!loading && results.length === 0 && <div className="search-no-results">Inga träffar</div>}
+									<ul className="search-results-list">
+										{results.map(product => (
+											<li key={product.id} className="search-result-item">
+												<NavLink to={`/product/${product.id}`}>{product.name}</NavLink>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
+						</ProductSearchLogic>
+					</div>
+				)}
+			</div>
 
 			<nav className={`dropdown-menu ${isMenuOpen ? 'open' : ''}`}>
 				<ul>

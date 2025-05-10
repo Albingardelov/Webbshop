@@ -1,4 +1,4 @@
-import './Cart.css';
+import '../../styles/Cart.css';
 import trashIcon from '../../assets/trashCan.svg';
 import { useCartStore } from '../../store/cartStore';
 

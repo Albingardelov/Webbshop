@@ -12,6 +12,7 @@ import Login, { AdminProtected } from './pages/Login.jsx';
 import EditProduct from './pages/EditProduct.jsx';
 import AddProduct from './pages/AddProduct.jsx';
 import ProductPage from './pages/ProductPage';
+import ProductDetails from './pages/ProductDetails';
 
 const router = createHashRouter([
   {
@@ -49,6 +50,10 @@ const router = createHashRouter([
       {
         path: 'category/:category',
         Component: ProductPage
+      },
+      {
+        path: 'product/:id',
+        Component: ProductDetails
       }
     ]
   }

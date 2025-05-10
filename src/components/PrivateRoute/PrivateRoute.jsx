@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { auth } from '../data/database';
+import { auth } from '../../data/database';
 
 function PrivateRoute({ children }) {
   const [loading, setLoading] = useState(true);
