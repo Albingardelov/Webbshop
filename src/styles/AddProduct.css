@@ -1,0 +1,265 @@
+.add-product-form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-product-form h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.add-product-form input,
+.add-product-form select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.add-product-form button {
+    width: 100%;
+    padding: 0.8rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.add-product-form button:hover {
+    background: #0056b3;
+}
+
+.form-error {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-success {
+    color: #28a745;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.overlay-confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.overlay-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+}
+
+.overlay-content h3 {
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.overlay-content ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.overlay-content li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.overlay-content .confirm-btn,
+.overlay-content .cancel-btn {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.overlay-content .confirm-btn {
+    background: #28a745;
+    color: white;
+}
+
+.overlay-content .confirm-btn:hover {
+    background: #218838;
+}
+
+.overlay-content .cancel-btn {
+    background: #dc3545 !important;
+    color: white !important;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    padding: 0.8rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.overlay-content .cancel-btn:hover {
+    background: #c82333 !important;
+}
+
+.add-product-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.add-product-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 0;
+}
+
+.confirm-btn, .confirm-btn:link, .confirm-btn:visited, .confirm-btn.active {
+    min-width: 140px !important;
+    height: 48px !important;
+    background: #28fa9c !important;
+    color: #222 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    transition: background 0.2s, color 0.2s !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08) !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 1.5rem !important;
+}
+
+.confirm-btn:hover, .confirm-btn.active:hover {
+    background: #1edc7a !important;
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+@media (max-width: 700px) {
+    .add-product-outer {
+        min-height: unset;
+    }
+    .add-product-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .add-product-wrapper .confirm-btn {
+        width: 100%;
+        min-width: 0;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.edit-product-outer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background: none;
+    margin-top: 2.5rem;
+}
+
+.edit-product-box {
+    background: #f3f3f3;
+    border-radius: 10px;
+    padding: 2.5rem 2rem 2rem 2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.edit-product-box h2 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    color: #111;
+    text-align: center;
+}
+
+.edit-product-box select {
+    padding: 0.7rem 1rem;
+    border-radius: 4px;
+    border: none;
+    font-size: 1rem;
+    background: #fff;
+    color: #222;
+    margin-bottom: 0.5rem;
+    min-width: 220px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+
+.edit-product-box select:focus {
+    outline: 2px solid #5fffb0;
+}
+
+.edit-product-box .confirm-btn,
+.edit-product-box .confirm-btn:link,
+.edit-product-box .confirm-btn:visited {
+    min-width: 140px !important;
+    height: 48px !important;
+    background: #28fa9c !important;
+    color: #222 !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    transition: background 0.2s, color 0.2s !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08) !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 1.5rem !important;
+}
+
+.edit-product-box .confirm-btn:hover {
+    background: #1edc7a !important;
+    color: #fff !important;
+    text-decoration: none !important;
+} 

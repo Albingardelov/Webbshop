@@ -5,6 +5,7 @@ import ups from '../../assets/upsLogo.svg';
 import facebook from '../../assets/facebookLogo.svg';
 import youtube from '../../assets/youtubeLogo.svg';
 import instagram from '../../assets/instagramLogo.svg';
+import { NavLink } from 'react-router';
 // You can add your own SVGs for social icons in the assets folder
 
 function Footer() {
@@ -23,7 +24,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-admin">
-          <a href="/admin">Admin inlogg</a>
+          <NavLink to="/login">Admin inlogg</NavLink>
         </div>
       </div>
       <div className="footer-bottom">

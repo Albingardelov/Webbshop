@@ -1,0 +1,35 @@
+.admin-menu {
+  max-width: 400px;
+  margin: 3rem auto;
+  background: #f3f3f3;
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.admin-menu h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  color: #222;
+}
+
+.admin-btn {
+  background: #5fffb0;
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 0.7rem;
+  transition: background 0.15s;
+}
+
+.admin-btn:hover {
+  background: #3be88d;
+} 

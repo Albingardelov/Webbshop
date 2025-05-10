@@ -8,7 +8,7 @@ import { createHashRouter, RouterProvider } from 'react-router';
 import Home from './pages/Home.jsx';
 import Cart from './components/Cart/Cart.jsx';
 import Admin from './pages/Admin.jsx';
-import Login from './pages/Login.jsx';
+import Login, { AdminProtected } from './pages/Login.jsx';
 import EditProduct from './pages/EditProduct.jsx';
 import AddProduct from './pages/AddProduct.jsx';
 import ProductPage from './pages/ProductPage';
@@ -28,11 +28,15 @@ const router = createHashRouter([
       },
       {
         path: 'admin',
-        Component: Admin
+        Component: AdminProtected
       },
       {
         path: 'login',
         Component: Login
+      },
+      {
+        path: 'admin/edit',
+        Component: EditProduct
       },
       {
         path: 'admin/edit/:id',
