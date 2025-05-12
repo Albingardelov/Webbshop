@@ -138,3 +138,41 @@
 .menu-wrapper {
 	position: relative;
 }
+
+.search-dropdown {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: #1f1f1f;
+	z-index: 1001;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+	border-radius: 0 0 8px 8px;
+	padding: 0.5rem 0 0.5rem 0;
+}
+
+.search-results-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.search-result-item {
+	margin: 0;
+	padding: 0;
+}
+
+.search-result-item a {
+	display: block;
+	color: white;
+	text-decoration: none;
+	font-size: 1.05rem;
+	padding: 0.4rem 0.8rem;
+	border-radius: 4px;
+	transition: background 0.15s, color 0.15s;
+}
+
+.search-result-item a:hover {
+	background: #fff;
+	color: #1f1f1f;
+}
