@@ -1,4 +1,4 @@
-import './CartCounterBadge.css';
+import '../../styles/CartCounterBadge.css';
 import cartIcon from '../../assets/cartIcon.svg';
 import { useCartStore } from '../../store/cartStore';
 
