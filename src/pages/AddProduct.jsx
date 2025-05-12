@@ -52,8 +52,8 @@ function AddProduct() {
 
 	return (
 		<form className="add-product-form" onSubmit={handleSubmit}>
-			<NavLink to="/admin" className="confirm-btn" style={{ marginBottom: '1rem', textAlign: 'center' }}>Tillbaka</NavLink>
-			<h2>Lägg till produkt</h2>
+			<NavLink to="/admin" className="confirm-btn addproduct-back-btn">Tillbaka</NavLink>
+			<h2 className="addproduct-title">Lägg till produkt</h2>
 			<input name="name" placeholder="Namn" value={form.name} onChange={handleChange} required />
 			{errors.name && <div className="form-error">{errors.name}</div>}
 			<input name="price" placeholder="Pris" value={form.price} onChange={handleChange} required />
@@ -71,11 +71,11 @@ function AddProduct() {
 			{errors.category && <div className="form-error">{errors.category}</div>}
 			{showConfirm ? (
 				<>
-					<button type="button" className="confirm-btn" onClick={handleConfirm}>Ja, lägg till</button>
-					<button type="button" className="cancel-btn" onClick={() => setShowConfirm(false)}>Avbryt</button>
+					<button type="button" className="confirm-btn addproduct-confirm-btn" onClick={handleConfirm}>Ja, lägg till</button>
+					<button type="button" className="cancel-btn addproduct-cancel-btn" onClick={() => setShowConfirm(false)}>Avbryt</button>
 				</>
 			) : (
-				<button type="submit">Lägg till produkt</button>
+				<button type="submit" className="addproduct-submit-btn">Lägg till produkt</button>
 			)}
 			{errors.general && <div className="form-error">{errors.general}</div>}
 			{success && <div className="form-success">{success}</div>}

@@ -1,4 +1,4 @@
-.admin-menu {
+.checkout-thankyou-container {
   max-width: 400px;
   margin: 3rem auto;
   background: #f3f3f3;
@@ -11,20 +11,14 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
-.admin-menu h2 {
-  margin-bottom: 1.5rem;
-  font-size: 1.4rem;
-  color: #222;
-}
-
-.admin-title {
-  margin-bottom: 1.5rem;
+.checkout-thankyou-title {
+  margin-bottom: 2rem;
   font-size: 1.4rem;
   color: #222;
   text-align: center;
 }
 
-.admin-btn {
+.checkout-thankyou-btn {
   background: #5fffb0;
   color: #111;
   border: none;
@@ -37,6 +31,6 @@
   transition: background 0.15s;
 }
 
-.admin-btn:hover {
+.checkout-thankyou-btn:hover {
   background: #3be88d;
 } 

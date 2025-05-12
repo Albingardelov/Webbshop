@@ -37,6 +37,7 @@ function Login() {
 					value={email}
 					onChange={e => setEmail(e.target.value)}
 					required
+					className="login-input"
 				/>
 				<input
 					type="password"
@@ -44,6 +45,7 @@ function Login() {
 					value={password}
 					onChange={e => setPassword(e.target.value)}
 					required
+					className="login-input"
 				/>
 				<button type="submit" className="login-btn" disabled={loading}>
 					{loading ? 'Loggar in...' : 'Logga in'}

@@ -14,6 +14,7 @@ import AddProduct from './pages/AddProduct.jsx';
 import ProductPage from './pages/ProductPage';
 import ProductDetails from './pages/ProductDetails';
 import CheckoutThankYou from './pages/CheckoutThankYou.jsx';
+import CheckoutForm from './pages/CheckoutForm.jsx';
 
 const router = createHashRouter([
   {
@@ -58,6 +59,10 @@ const router = createHashRouter([
       },
       {
         path: 'checkout',
+        Component: CheckoutForm
+      },
+      {
+        path: 'thankyou',
         Component: CheckoutThankYou
       }
     ]

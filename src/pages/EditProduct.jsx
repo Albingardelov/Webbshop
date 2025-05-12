@@ -93,8 +93,8 @@ function EditProduct() {
 	if (productId && editProduct) {
 		return (
 			<form className="add-product-form" onSubmit={handleUpdate}>
-				<NavLink to="/admin/edit" className="confirm-btn" style={{ marginBottom: '1rem', textAlign: 'center' }}>Tillbaka</NavLink>
-				<h2>Redigera produkt</h2>
+				<NavLink to="/admin/edit" className="confirm-btn">Tillbaka</NavLink>
+				<h2 className="edit-title">Redigera produkt</h2>
 				<input name="name" placeholder="Namn" value={form.name} onChange={handleFormChange} required />
 				<input name="price" placeholder="Pris" value={form.price} onChange={handleFormChange} required />
 				<input name="description" placeholder="Beskrivning" value={form.description} onChange={handleFormChange} required />
@@ -117,8 +117,8 @@ function EditProduct() {
 		<div className="edit-product-outer">
 			<div className="edit-product-box">
 				<NavLink to="/admin" className="confirm-btn">Tillbaka</NavLink>
-				<h2>Redigera produkt</h2>
-				<div style={{ margin: '1rem 0' }}>
+				<h2 className="edit-title">Redigera produkt</h2>
+				<div className="edit-category-select">
 					<select value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)}>
 						<option value="">Välj kategori</option>
 						{CATEGORIES.map(cat => (
