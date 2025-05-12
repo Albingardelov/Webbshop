@@ -1,6 +1,7 @@
 import '../../styles/Cart.css';
 import trashIcon from '../../assets/trashCan.svg';
 import { useCartStore } from '../../store/cartStore';
+import { useNavigate } from 'react-router';
 
 function Cart() {
   const cartItems = useCartStore((state) => state.items);
@@ -12,6 +13,7 @@ function Cart() {
     const quantity = Number(item.quantity) || 0;
     return sum + price * quantity;
   }, 0);
+  const navigate = useNavigate();
 
   return (
     <div className="cart-container">
@@ -63,7 +65,7 @@ function Cart() {
               <span>{total} kr</span>
             </div>
             <hr className="cart-divider" />
-            <button className="cart-checkout-btn">Gå till kassan</button>
+            <button className="cart-checkout-btn" onClick={() => navigate('/checkout')}>Gå till kassan</button>
           </div>
         </>
       )}

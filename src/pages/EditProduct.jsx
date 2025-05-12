@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { db } from '../data/database';
 import { collection, getDocs, deleteDoc, doc, getDoc, updateDoc } from 'firebase/firestore';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate, useParams } from 'react-router';
 import '../styles/AddProduct.css';
 
 const CATEGORIES = [
@@ -10,11 +10,6 @@ const CATEGORIES = [
 	{ value: 'gamingheadset', label: 'Gaming' },
 	{ value: 'accessories', label: 'Tillbehör' },
 ];
-
-function getIdFromHash() {
-	const match = window.location.hash.match(/\/admin\/edit\/([^/]+)/);
-	return match ? match[1] : null;
-}
 
 function EditProduct() {
 	const [selectedCategory, setSelectedCategory] = useState('');
@@ -27,8 +22,9 @@ function EditProduct() {
 	const [saving, setSaving] = useState(false);
 	const [success, setSuccess] = useState('');
 	const [errors, setErrors] = useState({});
-
-	const productId = getIdFromHash();
+	const navigate = useNavigate();
+	const params = useParams();
+	const productId = params.id;
 
 	// Hämta produkt för redigering om id finns
 	useEffect(() => {
@@ -139,7 +135,7 @@ function EditProduct() {
 								<div className="product-name">{product.name}</div>
 								<div className="product-price">{product.price} kr</div>
 								<div className="product-description">{product.description}</div>
-								<button className="edit-btn" onClick={() => window.location.hash = `#/admin/edit/${product.id}`}>Redigera</button>
+								<button className="edit-btn" onClick={() => navigate(`/admin/edit/${product.id}`)}>Redigera</button>
 								<button className="delete-btn" onClick={() => setDeleteId(product.id)}>Ta bort</button>
 								{deleteId === product.id && (
 									<div className="delete-confirm">

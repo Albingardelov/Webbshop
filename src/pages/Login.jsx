@@ -4,12 +4,14 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import '../styles/Login.css';
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute.jsx';
 import Admin from './Admin.jsx';
+import { useNavigate } from 'react-router';
 
 function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
+	const navigate = useNavigate();
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
@@ -17,8 +19,7 @@ function Login() {
 		setLoading(true);
 		try {
 			await signInWithEmailAndPassword(auth, email, password);
-			// Navigera till admin-sidan, t.ex. window.location.hash = '#/admin';
-			window.location.hash = '#/admin';
+			navigate('/admin');
 		} catch (err) {
 			setError('Fel e-post eller lösenord');
 		} finally {
