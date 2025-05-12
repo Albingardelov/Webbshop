@@ -141,4 +141,45 @@
   .category-card {
     padding: 1rem 0.2rem 0.5rem 0.2rem;
   }
+}
+
+.home-description-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #b0b0b0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home-description {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 2.5rem 2rem;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.home-description h1 {
+  font-size: 2.1rem;
+  margin-bottom: 1.2rem;
+  color: #222;
+}
+
+.home-description p {
+  font-size: 1.18rem;
+  color: #222;
+  line-height: 1.7;
+}
+
+.home-desc-mobile { display: none; }
+@media (max-width: 600px) {
+  .home-desc-desktop { display: none; }
+  .home-desc-mobile { display: block; }
 } 
