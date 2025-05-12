@@ -24,7 +24,7 @@ function Footer() {
           </div>
         </div>
         <div className="footer-admin">
-          <NavLink to="/login">Admin inlogg</NavLink>
+          {/* <NavLink to="/login">Admin inlogg</NavLink> */}
         </div>
       </div>
       <div className="footer-bottom">

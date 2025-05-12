@@ -80,9 +80,16 @@ function Header({ onCartClick }) {
 									{loading && <div className="search-loading">Söker...</div>}
 									{!loading && results.length === 0 && <div className="search-no-results">Inga träffar</div>}
 									<ul className="search-results-list">
-										{results.map(product => (
-											<li key={product.id} className="search-result-item">
-												<NavLink to={`/product/${product.id}`}>{product.name}</NavLink>
+										{results.map(result => (
+											<li key={result.id} className="search-result-item">
+												{result.isCategory ? (
+													<NavLink to={result.link} style={{ fontWeight: 'bold' }} onClick={() => setSearchActive(false)}>
+														{/* Du kan lägga till en ikon här om du vill, t.ex. 📂 */}
+														{result.name}
+													</NavLink>
+												) : (
+													<NavLink to={`/product/${result.id}`}>{result.name}</NavLink>
+												)}
 											</li>
 										))}
 									</ul>
