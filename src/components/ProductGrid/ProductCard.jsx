@@ -9,6 +9,8 @@ function ProductCard({ product }) {
 
   const handleAddToCart = () => {
     addToCart(product);
+
+	// Toast
     setAdded(true);
     setTimeout(() => setAdded(false), 1200);
   };

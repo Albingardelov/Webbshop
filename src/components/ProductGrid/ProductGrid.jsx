@@ -25,6 +25,8 @@ function ProductGrid({ category, sortBy = 'name' }) {
   const sortedProducts = [...products].sort((a, b) => {
     if (sortBy === 'price') {
       return (Number(a.price) || 0) - (Number(b.price) || 0);
+    } else if (sortBy === 'price-desc') {
+      return (Number(b.price) || 0) - (Number(a.price) || 0);
     } else {
       // Default: sort by name (A-Ö)
       return (a.name || '').localeCompare(b.name || '', 'sv');

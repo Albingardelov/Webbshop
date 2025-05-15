@@ -4,8 +4,8 @@ import menuIcon from '../../assets/menuIcon.svg';
 import searchIcon from '../../assets/searchIcon.svg';
 import logo from '../../assets/Logo.svg';
 import { NavLink } from 'react-router';
-import ProductSearchLogic from '../SearchLogic/ProductSearchLogic';
 import CartCounterBadge from '../CartCounterBadge/CartCounterBadge';
+import ProductSearchResults from '../SearchLogic/ProductSearchResults.jsx';
 
 function Header({ onCartClick }) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,28 +74,10 @@ function Header({ onCartClick }) {
 				</form>
 				{searchActive && searchQuery && (
 					<div className="search-dropdown">
-						<ProductSearchLogic query={searchQuery}>
-							{({ results, loading }) => (
-								<div>
-									{loading && <div className="search-loading">Söker...</div>}
-									{!loading && results.length === 0 && <div className="search-no-results">Inga träffar</div>}
-									<ul className="search-results-list">
-										{results.map(result => (
-											<li key={result.id} className="search-result-item">
-												{result.isCategory ? (
-													<NavLink to={result.link} style={{ fontWeight: 'bold' }} onClick={() => setSearchActive(false)}>
-														{/* Du kan lägga till en ikon här om du vill, t.ex. 📂 */}
-														{result.name}
-													</NavLink>
-												) : (
-													<NavLink to={`/product/${result.id}`}>{result.name}</NavLink>
-												)}
-											</li>
-										))}
-									</ul>
-								</div>
-							)}
-						</ProductSearchLogic>
+						<ProductSearchResults 
+							query={searchQuery} 
+							onResultClick={() => setSearchActive(false)} 
+						/>
 					</div>
 				)}
 			</div>

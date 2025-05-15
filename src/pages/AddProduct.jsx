@@ -51,18 +51,18 @@ function AddProduct() {
 	};
 
 	return (
-		<form className="add-product-form" onSubmit={handleSubmit}>
+		<form className="add-product-form" onSubmit={handleSubmit} noValidate>
 			<NavLink to="/admin" className="confirm-btn addproduct-back-btn">Tillbaka</NavLink>
 			<h2 className="addproduct-title">Lägg till produkt</h2>
-			<input name="name" placeholder="Namn" value={form.name} onChange={handleChange} required />
+			<input name="name" placeholder="Namn" value={form.name} onChange={handleChange} />
 			{errors.name && <div className="form-error">{errors.name}</div>}
-			<input name="price" placeholder="Pris" value={form.price} onChange={handleChange} required />
+			<input name="price" placeholder="Pris" value={form.price} onChange={handleChange} />
 			{errors.price && <div className="form-error">{errors.price}</div>}
-			<input name="description" placeholder="Beskrivning" value={form.description} onChange={handleChange} required />
+			<input name="description" placeholder="Beskrivning" value={form.description} onChange={handleChange} />
 			{errors.description && <div className="form-error">{errors.description}</div>}
-			<input name="image" placeholder="Bild-URL" value={form.image} onChange={handleChange} required />
+			<input name="image" placeholder="Bild-URL" value={form.image} onChange={handleChange} />
 			{errors.image && <div className="form-error">{errors.image}</div>}
-			<select name="category" value={form.category} onChange={handleChange} required>
+			<select name="category" value={form.category} onChange={handleChange}>
 				<option value="">Välj kategori</option>
 				{CATEGORIES.map(cat => (
 					<option key={cat.value} value={cat.value}>{cat.label}</option>

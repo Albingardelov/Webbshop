@@ -12,7 +12,7 @@ function ProductSearchLogic({ query, children }) {
     { value: 'in-ear', label: 'In-Ear', link: '/category/in-ear' },
     { value: 'gaming', label: 'Gaming', link: '/category/gaming' },
     { value: 'accessories', label: 'Tillbehör', link: '/category/accessories' },
-    { value: 'tillbehör', label: 'Tillbehör', link: '/category/accessories' }, // för svensk stavning
+    { value: 'tillbehör', label: 'Tillbehör', link: '/category/accessories' },
   ];
 
   useEffect(() => {

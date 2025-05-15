@@ -5,23 +5,42 @@ import '../styles/Login.css';
 import PrivateRoute from '../components/PrivateRoute/PrivateRoute.jsx';
 import Admin from './Admin.jsx';
 import { useNavigate } from 'react-router';
+import { loginSchema } from '../validation/loginSchema';
 
 function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [error, setError] = useState('');
+	const [firebaseError, setFirebaseError] = useState('');
+	const [formErrors, setFormErrors] = useState({});
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
 
 	const handleLogin = async (e) => {
 		e.preventDefault();
-		setError('');
+		setFirebaseError('');
+		setFormErrors({});
+
+		const { error: validationError } = loginSchema.validate(
+			{ email, password },
+			{ abortEarly: false }
+		);
+
+		if (validationError) {
+			const fieldErrors = {};
+			validationError.details.forEach(err => {
+				fieldErrors[err.path[0]] = err.message;
+			});
+			setFormErrors(fieldErrors);
+			setLoading(false);
+			return;
+		}
+
 		setLoading(true);
 		try {
 			await signInWithEmailAndPassword(auth, email, password);
 			navigate('/admin');
 		} catch (err) {
-			setError('Fel e-post eller lösenord');
+			setFirebaseError('Fel e-postadress eller lösenord. Kontrollera dina uppgifter.');
 		} finally {
 			setLoading(false);
 		}
@@ -30,27 +49,35 @@ function Login() {
 	return (
 		<div className="login-bg">
 			<div className="login-title">Logga in som admin för att redigera produkter.</div>
-			<form className="login-form" onSubmit={handleLogin}>
-				<input
-					type="email"
-					placeholder="Användarnamn"
-					value={email}
-					onChange={e => setEmail(e.target.value)}
-					required
-					className="login-input"
-				/>
-				<input
-					type="password"
-					placeholder="Lösenord"
-					value={password}
-					onChange={e => setPassword(e.target.value)}
-					required
-					className="login-input"
-				/>
+			<form className="login-form" onSubmit={handleLogin} noValidate>
+				<div>
+					<input
+						type="email"
+						placeholder="E-postadress"
+						value={email}
+						onChange={e => setEmail(e.target.value)}
+						className="login-input"
+						aria-invalid={!!formErrors.email}
+					/>
+					{formErrors.email && <div className="login-error input-error">{formErrors.email}</div>}
+				</div>
+
+				<div>
+					<input
+						type="password"
+						placeholder="Lösenord"
+						value={password}
+						onChange={e => setPassword(e.target.value)}
+						className="login-input"
+						aria-invalid={!!formErrors.password}
+					/>
+					{formErrors.password && <div className="login-error input-error">{formErrors.password}</div>}
+				</div>
+				
 				<button type="submit" className="login-btn" disabled={loading}>
 					{loading ? 'Loggar in...' : 'Logga in'}
 				</button>
-				{error && <div className="login-error">{error}</div>}
+				{firebaseError && <div className="login-error general-error">{firebaseError}</div>}
 			</form>
 		</div>
 	);

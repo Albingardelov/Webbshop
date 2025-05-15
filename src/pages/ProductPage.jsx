@@ -28,6 +28,7 @@ function ProductPage() {
         <select id="sort-select" value={sortBy} onChange={e => setSortBy(e.target.value)}>
           <option value="name">Namn (A-Ö)</option>
           <option value="price">Pris (lägst först)</option>
+          <option value="price-desc">Pris (högst först)</option>
         </select>
       </div>
       <ProductGrid category={firestoreCategory} sortBy={sortBy} />
