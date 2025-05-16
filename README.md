@@ -1,4 +1,4 @@
- Beskrivning av mitt arbete: Ljudzon
+ Beskrivning av mitt arbete:
 I projektet Ljudzon skapade jag en responsiv webbshop med fokus på att sälja högkvalitativa hörlurar och ljudtillbehör. Målet var att bygga en ren, användarvänlig och professionell e-handelslösning som ger både tydlig produktinformation och smidig kundupplevelse.
 
 Byggdelar och teknologier:
